@@ -13,7 +13,8 @@ job_build:
   stage: build
   script:
     - pwd
-    - meteor build /home/gitlab-runner/dist --directory --server=http://example.org:3000 --verbose
+    - meteor build --verbose
+    - ls
 
 job_deploy:
   stage: deploy
