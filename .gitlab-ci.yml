@@ -1,22 +1,22 @@
-image: node:latest
+default:
+  image: node:latest
 
-types:
+stages:
   - build
   - deploy
 
-  cache:
-    paths:
-      - node_modules/
+cache:
+  paths:
+    - node_modules/
 
 job_build:
-  type: build
+  stage: build
   script:
     - pwd
     - meteor build /home/gitlab-runner/dist --directory --server=http://example.org:3000 --verbose
 
-
 job_deploy:
-  type: deploy
+  stage: deploy
   script:
     - echo "deploying ----"
     - cd /home/gitlab-runner/dist/bundle/programs/server/ && /home/gitlab-runner/.meteor/packages/meteor-tool/1.1.10/mt-os.linux.x86_64/dev_bundle/bin/npm install
