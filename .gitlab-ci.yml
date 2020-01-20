@@ -5,18 +5,3 @@ stages:
   - build
   - deploy
 
-job_build:
-  stage: build
-  script:
-    - pwd
-    - meteor build --verbose
-    - ls
-
-job_deploy:
-  stage: deploy
-  script:
-    - echo "deploying ----"
-    - cd /home/gitlab-runner/dist/bundle/programs/server/ && /home/gitlab-runner/.meteor/packages/meteor-tool/1.1.10/mt-os.linux.x86_64/dev_bundle/bin/npm install
-    - cd ../..
-    - sudo restart meteor-service
-    - sudo status meteor-service
