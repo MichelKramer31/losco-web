@@ -5,3 +5,10 @@ stages:
   - build
   - deploy
 
+job_build:
+  stage: build
+
+
+job_deploy:
+  stage: deploy
+
